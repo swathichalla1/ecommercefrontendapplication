@@ -1,0 +1,14 @@
+.showcart{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    border:2px solid red;
+    margin:5px;
+}
+
+.checkout{
+    margin-left:50%;
+    background-color:crimson;
+    color:white;
+    border:none;
+}
