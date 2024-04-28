@@ -12,13 +12,14 @@ const AllProducts = () => {
 
   
   useEffect(()=>{
+    console.log("all products useffect called");
     async function getProducts(){
       //console.log("fetched");
       setstatus("Loading")
       try{
             const response = await fetch("https://ecommercebackend-2-tnje.onrender.com/Product/AllProducts");
             const data = await response.json();
-            //console.log(data);
+            console.log(data);
   
             if (response.ok){
               setstatus("initial");
@@ -34,7 +35,8 @@ const AllProducts = () => {
     //console.log("something happend ",error);
       }
     }
-    return ()=>(getProducts())
+    //return ()=>(getProducts())
+    getProducts()
   },[])
 
   return (

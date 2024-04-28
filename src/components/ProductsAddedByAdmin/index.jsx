@@ -11,14 +11,14 @@ const ProductsAddedByAdmin = () => {
 
 
     useEffect(()=>{
-
+        console.log("products by admin useeffect called");
         async function getAdminAddedProducts(){
           setstatus("Loading");
           const Adminidentity = localStorage.getItem("Adminidentity");
             try{
                 const response = await fetch(`https://ecommercebackend-2-tnje.onrender.com/Admin/adminProducts/${Adminidentity}`);
                 const data = await response.json();
-                //console.log(data);
+                console.log(data);
 
                 if (response.ok){
                     setadminproducts(data.onlyProducts)
@@ -42,7 +42,8 @@ const ProductsAddedByAdmin = () => {
             
         }
         
-        return ()=>getAdminAddedProducts()
+        //return ()=>getAdminAddedProducts()
+        getAdminAddedProducts()
     },[])
 
     const deleteProductByAdmin = async(id)=>{
