@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext ,useEffect,useState} from 'react';
 import './index.css';
 import { store } from '../../App.jsx';
 
@@ -7,6 +7,27 @@ const ShowProduct = (props) => {
   const { productName, price, rating, description, image, _id } = details;
 
   const { cartitems, setcartitems } = useContext(store);
+  const [imagefile,setimagefile] = useState(null);
+
+  useEffect(() => {
+    async function getImage() {
+      try {
+        //const response = await fetch(`https://ecommercebackend-2-tnje.onrender.com/uploads/uploads/${image}`);
+        const response = await fetch(`http://localhost:5001/uploads/uploads/${image}`)
+        const data = await response.blob(); // Get image data as a blob
+        //console.log(response);
+        //console.log(data);
+        if (response.ok) {
+          console.log(URL.createObjectURL(data))
+          setimagefile(URL.createObjectURL(data)); // Create a URL for the blob and set it as image source
+        }
+      } catch (error) {
+        console.error('Error fetching image:', error);
+      }
+    }
+    getImage(); // Call the getImage function
+  }, []);
+  
 
   const addToCart = () => {
     setcartitems([...cartitems, details]);
@@ -16,12 +37,14 @@ const ShowProduct = (props) => {
     deleteProductByAdmin(_id);
   };
 
+  //{`https://ecommercebackend-2-tnje.onrender.com/uploads/uploads/${image}`}
+
   let productImage;
   try {
     productImage = (
       <img
         className="productImage"
-        src={`https://ecommercebackend-2-tnje.onrender.com/uploads/uploads/${image}`}
+        src={imagefile}
         alt={productName}
       />
     );

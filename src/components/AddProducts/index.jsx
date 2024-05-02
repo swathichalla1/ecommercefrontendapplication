@@ -41,19 +41,28 @@ const AddProducts = () => {
         },
         body:formData,
     }
-            
-            const response =await fetch("https://ecommercebackend-2-tnje.onrender.com/Product/add-Product",options)
-            //console.log(response);
+           // https://ecommercebackend-2-tnje.onrender.com/Product/add-Product"
+            const response =await fetch("http://localhost:5001/Product/add-Product",options)
+            console.log(response);
             const data = await response.json();
+            console.log(data);
             
             if(response.ok){
                 console.log("product added succesfully:frontend");
                 alert("product added");
-            }
+                setproductName("");
+                setdescription("");
+                setprice("");
+                setrating("");
+                setfile(null);
+          }
+          else{
             alert("something went wrong try again!");
+          }
+            
             //console.log(data);
         }catch(error){
-           //console.log(error);
+           console.log("catch ",error);
            alert(`error : ${error}`);
         }
     }

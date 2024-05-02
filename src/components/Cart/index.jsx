@@ -19,7 +19,7 @@ const Cart = () => {
       {cartitems.map((eachitem)=>{
         return(<div key={eachitem._id} className="showcart">
         <>
-        <img className="eachitem" src={`https://ecommercebackend-2-tnje.onrender.com/uploads/uploads/${eachitem.image}`} alt={"productImage"}/>
+        <img className="eachitem" src={`http://localhost:5001/uploads/uploads/${eachitem.image}`} alt={"productImage"}/>
         <p className="eachitem">{`Product : ${eachitem.productName}`}</p>
         </>
        
