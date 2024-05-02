@@ -42,7 +42,7 @@ const AddProducts = () => {
         body:formData,
     }
            // https://ecommercebackend-2-tnje.onrender.com/Product/add-Product"
-            const response =await fetch("http://localhost:5001/Product/add-Product",options)
+            const response =await fetch("https://ecommercebackend-2-tnje.onrender.com/Product/add-Product",options)
             console.log(response);
             const data = await response.json();
             console.log(data);

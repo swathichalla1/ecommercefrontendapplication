@@ -13,7 +13,7 @@ const ShowProduct = (props) => {
     async function getImage() {
       try {
         //const response = await fetch(`https://ecommercebackend-2-tnje.onrender.com/uploads/uploads/${image}`);
-        const response = await fetch(`http://localhost:5001/uploads/uploads/${image}`)
+        const response = await fetch(`https://ecommercebackend-2-tnje.onrender.com/uploads/uploads/${image}`)
         const data = await response.blob(); // Get image data as a blob
         //console.log(response);
         //console.log(data);
