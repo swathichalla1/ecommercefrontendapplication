@@ -43,8 +43,8 @@ const UserRegistration = ()=>{
             body:JSON.stringify(userDetails)
             }
      
-          // const response = await fetch("https://ecommercebackend-2-tnje.onrender.com/User/UserRegister",options);
-          const response = await fetch("http://localhost:5001/User/UserRegister",options);
+          const response = await fetch("https://ecommercebackend-2-tnje.onrender.com/User/UserRegister",options);
+          // const response = await fetch("http://localhost:5001/User/UserRegister",options);
 
           const data = await response.json();
           //console.log(data);
