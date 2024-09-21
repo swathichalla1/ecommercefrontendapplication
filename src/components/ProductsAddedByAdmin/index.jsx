@@ -50,7 +50,7 @@ const ProductsAddedByAdmin = () => {
 
     const deleteProductByAdmin = async(id)=>{
         try{
-          const response = await fetch(`http://localhost:5001/Product/delete/${id}`,{
+          const response = await fetch(`https://ecommercebackend-2-tnje.onrender.com/Product/delete/${id}`,{
             method:"DELETE"
           })
           const data = await response.json();
